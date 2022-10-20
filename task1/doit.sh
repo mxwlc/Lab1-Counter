@@ -1,3 +1,8 @@
+#!/bin/sh
+
+rm -rf obj_dir
+rm -f counter.vcd
+
 # Compile verilator
 verilator -Wall --cc --trace counter.sv --exe counter_tb.cpp
 
