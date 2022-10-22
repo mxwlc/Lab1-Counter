@@ -10,4 +10,4 @@ verilator -Wall --cc --trace counter.sv --exe counter_tb.cpp
 make -j -C obj_dir/ -f Vcounter.mk Vcounter
 
 #run the object
-obj_dir/Vcounter
+sudo obj_dir/Vcounter
