@@ -30,13 +30,16 @@ int main(int argc, char **argv, char **env)
     for (i = 0; i < 300; i++)
     {
         // dump variables into VCD file and toggle clock
-        for (clk = 0; clk < 2; clk++)
+        if (vbdFlag())
         {
-            tfp->dump(2 * i + clk);
-            top->clk = !top->clk;
-            
-            top->eval();
+            for (clk = 0; clk < 2; clk++)
+            {
+                tfp->dump(2 * i + clk);
+                top->clk = !top->clk;
+                top->eval();
+            }
         }
+
         vbdHex(4, (int(top->count) >> 16) & 0xF);
         vbdHex(3, (int(top->count) >> 8) & 0xF);
         vbdHex(2, (int(top->count) >> 4) & 0xF);
@@ -45,8 +48,7 @@ int main(int argc, char **argv, char **env)
 
         top->rst = (i < 2) | (i == 15);
         top->en = (i > 4);
-        top->vbuddy_preset = vbdFlag();
-        top->rotary_encoder = vbdValue();
+
         if (Verilated::gotFinish())
             exit(0);
     }
