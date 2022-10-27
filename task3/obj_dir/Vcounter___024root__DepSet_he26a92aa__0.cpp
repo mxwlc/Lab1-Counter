@@ -11,11 +11,9 @@ VL_INLINE_OPT void Vcounter___024root___sequent__TOP__0(Vcounter___024root* vlSe
     Vcounter__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vcounter___024root___sequent__TOP__0\n"); );
     // Body
-    vlSelf->count = (0xffU & ((IData)(vlSelf->vbuddy_preset)
-                               ? (IData)(vlSelf->rotary_encoder)
-                               : ((IData)(vlSelf->rst)
-                                   ? 0U : ((IData)(vlSelf->count) 
-                                           + (IData)(vlSelf->en)))));
+    vlSelf->count = ((IData)(vlSelf->rst) ? 0U : (0xffU 
+                                                  & ((IData)(vlSelf->count) 
+                                                     + (IData)(vlSelf->en))));
 }
 
 void Vcounter___024root___eval(Vcounter___024root* vlSelf) {
@@ -23,15 +21,13 @@ void Vcounter___024root___eval(Vcounter___024root* vlSelf) {
     Vcounter__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vcounter___024root___eval\n"); );
     // Body
-    if (((((IData)(vlSelf->clk) & (~ (IData)(vlSelf->__Vclklast__TOP__clk))) 
-          | ((IData)(vlSelf->rst) & (~ (IData)(vlSelf->__Vclklast__TOP__rst)))) 
-         | ((IData)(vlSelf->vbuddy_preset) & (~ (IData)(vlSelf->__Vclklast__TOP__vbuddy_preset))))) {
+    if ((((IData)(vlSelf->clk) & (~ (IData)(vlSelf->__Vclklast__TOP__clk))) 
+         | ((IData)(vlSelf->rst) & (~ (IData)(vlSelf->__Vclklast__TOP__rst))))) {
         Vcounter___024root___sequent__TOP__0(vlSelf);
     }
     // Final
     vlSelf->__Vclklast__TOP__clk = vlSelf->clk;
     vlSelf->__Vclklast__TOP__rst = vlSelf->rst;
-    vlSelf->__Vclklast__TOP__vbuddy_preset = vlSelf->vbuddy_preset;
 }
 
 #ifdef VL_DEBUG
@@ -40,8 +36,6 @@ void Vcounter___024root___eval_debug_assertions(Vcounter___024root* vlSelf) {
     Vcounter__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vcounter___024root___eval_debug_assertions\n"); );
     // Body
-    if (VL_UNLIKELY((vlSelf->vbuddy_preset & 0xfeU))) {
-        Verilated::overWidthError("vbuddy_preset");}
     if (VL_UNLIKELY((vlSelf->clk & 0xfeU))) {
         Verilated::overWidthError("clk");}
     if (VL_UNLIKELY((vlSelf->rst & 0xfeU))) {

@@ -2,7 +2,6 @@ module counter #(
     parameter WIDTH = 8
 )
 (
-
     // interface signals
     input logic clk, // clock
     input logic rst, // reset

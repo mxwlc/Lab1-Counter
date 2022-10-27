@@ -11,20 +11,16 @@ VL_ATTR_COLD void Vcounter___024root__trace_init_sub__TOP__0(Vcounter___024root*
     // Init
     const int c = vlSymsp->__Vm_baseCode;
     // Body
-    tracep->declBit(c+1,"vbuddy_preset", false,-1);
-    tracep->declBus(c+2,"rotary_encoder", false,-1, 7,0);
-    tracep->declBit(c+3,"clk", false,-1);
-    tracep->declBit(c+4,"rst", false,-1);
-    tracep->declBit(c+5,"en", false,-1);
-    tracep->declBus(c+6,"count", false,-1, 7,0);
+    tracep->declBit(c+1,"clk", false,-1);
+    tracep->declBit(c+2,"rst", false,-1);
+    tracep->declBit(c+3,"en", false,-1);
+    tracep->declBus(c+4,"count", false,-1, 7,0);
     tracep->pushNamePrefix("counter ");
-    tracep->declBus(c+7,"WIDTH", false,-1, 31,0);
-    tracep->declBit(c+1,"vbuddy_preset", false,-1);
-    tracep->declBus(c+2,"rotary_encoder", false,-1, 7,0);
-    tracep->declBit(c+3,"clk", false,-1);
-    tracep->declBit(c+4,"rst", false,-1);
-    tracep->declBit(c+5,"en", false,-1);
-    tracep->declBus(c+6,"count", false,-1, 7,0);
+    tracep->declBus(c+5,"WIDTH", false,-1, 31,0);
+    tracep->declBit(c+1,"clk", false,-1);
+    tracep->declBit(c+2,"rst", false,-1);
+    tracep->declBit(c+3,"en", false,-1);
+    tracep->declBus(c+4,"count", false,-1, 7,0);
     tracep->popNamePrefix(1);
 }
 
@@ -68,11 +64,9 @@ VL_ATTR_COLD void Vcounter___024root__trace_full_sub_0(Vcounter___024root* vlSel
     // Init
     uint32_t* const oldp VL_ATTR_UNUSED = bufp->oldp(vlSymsp->__Vm_baseCode);
     // Body
-    bufp->fullBit(oldp+1,(vlSelf->vbuddy_preset));
-    bufp->fullCData(oldp+2,(vlSelf->rotary_encoder),8);
-    bufp->fullBit(oldp+3,(vlSelf->clk));
-    bufp->fullBit(oldp+4,(vlSelf->rst));
-    bufp->fullBit(oldp+5,(vlSelf->en));
-    bufp->fullCData(oldp+6,(vlSelf->count),8);
-    bufp->fullIData(oldp+7,(8U),32);
+    bufp->fullBit(oldp+1,(vlSelf->clk));
+    bufp->fullBit(oldp+2,(vlSelf->rst));
+    bufp->fullBit(oldp+3,(vlSelf->en));
+    bufp->fullCData(oldp+4,(vlSelf->count),8);
+    bufp->fullIData(oldp+5,(8U),32);
 }
